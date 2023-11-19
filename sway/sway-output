@@ -24,8 +24,8 @@ output * bg /home/tesserekt/.config/sway/wallpapers/wallpaper.jpg fill
 #output HDMI-A-1 scale 2
 #
 # Multimonitor
-output DP-2 pos 0 0 mode 1920x1080@143.855Hz scale 1 adaptive_sync on
-output DP-1 pos 1920 0 mode 2560x1440@170.001Hz scale 1.25 adaptive_sync on
+output DP-2 pos 0 0 mode 1920x1080@143.855Hz scale 1 adaptive_sync off
+output DP-1 pos 1920 0 mode 2560x1440@170.001Hz scale 1.25 adaptive_sync off
 
 workspace 1 output DP-1
 workspace 2 output DP-2
