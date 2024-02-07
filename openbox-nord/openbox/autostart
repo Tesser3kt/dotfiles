@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
+
+## Kill if already running
+killall -9 xfsettingsd picom polybar mpd dunst ksuperkey xfce4-power-manager
+
+## Restore Wallpaper
+nitrogen --restore
+
+## xfce4-settings daemon
+xfsettingsd &
+
+## polkit agent
+if [[ ! `pidof xfce-polkit` ]]; then
+	/usr/lib/xfce-polkit/xfce-polkit &
+fi
+
+## Enable power management
+xfce4-power-manager &
+
+## Start Compositing Manager
+exec picom &
+
+## Launch Polybar or Tint2
+bash ~/.config/openbox/themes/launch-bar.sh
+
+## Notification Daemon
+exec dunst &
+
+## Start Music Player Daemon
+# exec mpd &
+
+## Thunar Daemon
+exec thunar --daemon &
+
+## Keyboard layout
+exec setxkbmap -layout us,cz -option grp:switch,grp:alt_shift_toggle,caps:escape &
+
+## Enable Super Keys For Menu
+exec ksuperkey -e 'Super_L=Alt_L|F1' &
+exec ksuperkey -e 'Super_R=Alt_L|F1' &
+
+## Enable Insert for Compose
+exec xmodmap -e "keycode 118 = Multi_key" &
+
+## Start discord
+exec discord &
+
+## Start megasync
+exec megasync &
+
+## Start MSI Control Center
+exec mcontrolcenter &
+
+## Start Solaar
+exec solaar &
+
+## Start redshift
+exec redshift -l 50.0755:14.4378 -t 5500:3700 &
+
+## These applets are specifically for tint2 panel.
+## If you're using tint2 as panel, Uncomment these applets.
+
+## User Friendly Network Menu
+#nm-applet --indicator &
+
+## User Friendly Bluetooth Menu
+#blueman-applet &
