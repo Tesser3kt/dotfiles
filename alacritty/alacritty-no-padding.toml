@@ -1,0 +1,19 @@
+[shell]
+program = "/usr/bin/zsh"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "MonaspiceNe Nerd Font"
+style = "Regular"
+
+[window]
+opacity = 0.7
+
+[window.padding]
+x = 0
+y = 0
+
+[selection]
+save_to_clipboard = true
