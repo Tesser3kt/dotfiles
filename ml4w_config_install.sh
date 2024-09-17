@@ -1,11 +1,11 @@
 #! /bin/bash
 
-echo "This script will backup and overwrite your current Alacritty, zshrc and Hyprland configs."
+echo "This script will backup and overwrite your current Alacritty, zshrc, zathura and Hyprland configs."
 echo -n "Proceed? y/n: "
 read -r proceed
 
 if [ $proceed = "y" ]; then
-    for folder in "alacritty" "zshrc" "hypr"
+    for folder in "alacritty" "zshrc" "hypr" "zathura"
     do
         # Make backups
         mv $HOME/.config/${folder} $HOME/.config/${folder}.bak
